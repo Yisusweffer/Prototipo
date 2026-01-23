@@ -16,7 +16,7 @@ const createUser = (user) => {
   });
 };
 
-const findByUsuario = (usuario) => {
+const findByUsername = (usuario) => {
   return new Promise((resolve, reject) => {
     const sql = `
       SELECT * FROM usuarios
@@ -32,5 +32,5 @@ const findByUsuario = (usuario) => {
 
 module.exports = {
   createUser,
-  findByUsuario,
+  findByUsername,
 };
