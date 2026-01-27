@@ -1,31 +1,35 @@
 const express = require('express');
 const router = express.Router();
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
+
 const userModel = require('../models/user.Model');
-const authMiddleware = require('../middlewares/auth.Middleware');
+const authMiddleware = require('../middlewares/auth.middleware');
 const roleMiddleware = require('../middlewares/role.middleware');
 
-const auth = authMiddleware;
-const role = roleMiddleware;
-
 router.post(
-    '/',
-    auth,
-    role(['admin']),
-    async (req, res) => {
-        const { nombre, usuario, password, rol} = req.body;
+  '/',
+  authMiddleware,
+  roleMiddleware(['supervisor']),
+  async (req, res) => {
+    try {
+      const { nombre, usuario, password, rol } = req.body;
 
-        const password_hash = await bcrypt.hash(password, 10);
+      const password_hash = await bcrypt.hash(password, 10);
 
-        await userModel.create({
-            nombre,
-            usuario,
-            password_hash,
-            rol
-        });
+      await userModel.createUser({
+        nombre,
+        usuario,
+        password_hash,
+        rol
+      });
 
-        res.json({ message: 'Usuario creado correctamente' });
+      res.json({ message: 'Usuario creado correctamente' });
+
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Error al crear usuario' });
     }
+  }
 );
 
 module.exports = router;
