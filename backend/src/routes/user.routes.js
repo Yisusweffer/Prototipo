@@ -1,9 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
-const userModel = require('../models/user.model');
-const auth = require('../middleware/auth.middleware');
-const role = require('../middleware/role.middleware');
+const userModel = require('../models/user.Model');
+const authMiddleware = require('../middlewares/auth.Middleware');
+const roleMiddleware = require('../middlewares/role.middleware');
+
+const auth = authMiddleware;
+const role = roleMiddleware;
 
 router.post(
     '/',
