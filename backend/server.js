@@ -6,8 +6,9 @@ console.log('JWT_SECRET:', process.env.JWT_SECRET);
 
 const authRoutes = require('./src/routes/auth.routes');
 const userRoutes = require('./src/routes/user.routes');
-const retiroRoutes = require('./src/routes/retiro.routes');
+const retirosRoutes = require('./src/routes/retiros.routes');
 const productosRoutes = require('./src/routes/productos.routes');
+const historialRoutes = require('./src/routes/historial.routes');
 
 const app = express();
 
@@ -16,8 +17,9 @@ app.use(express.json());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
-app.use('/api/retiros', retiroRoutes);
+app.use('/api/retiros', retirosRoutes);
 app.use('/api/productos', productosRoutes);
+app.use('/api/historial', historialRoutes);
 
 app.get('/', (req, res) => {
   res.send('✅ API Farmacia funcionando');
