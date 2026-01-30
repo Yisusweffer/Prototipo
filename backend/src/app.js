@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-require('dotenv').config();
 
 const app = express();
 
@@ -11,7 +10,6 @@ app.get('/', (req, res) => {
   res.send('✅ API Farmacia funcionando');
 });
 
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-  console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
-});
+app.use('/api/auth', require('./routes/auth.routes'));
+
+module.exports = app;
