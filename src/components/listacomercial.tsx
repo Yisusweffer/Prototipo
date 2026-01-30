@@ -17,7 +17,7 @@ const ListaComercial: React.FC<ListaComercialProps> = ({
       <h2>Inventario de Paciente</h2>
 
       {productos.length === 0 ? (
-        <p>No hay productos registrados.</p>
+      <div className="mensaje-vacio">No hay productos registrados.</div>
       ) : (
         <table className="productos-table">
           <thead>

@@ -4,7 +4,7 @@ import '../styles/header.css';
 
 const Header: React.FC = () => (
   <header>
-    <h2>Farmacia</h2>
+    <h2>IVSS DEL HOSPITAL IVSS DR. JUVENAL BRACHO</h2>
     <div className="header-user">
       <img
         src={logo}
