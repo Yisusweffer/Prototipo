@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import '../styles/sidebar.css'; // Importa el archivo CSS para los estilos
+import EstadisticasRetiros from './Estadisticas';
 
 interface SidebarProps {
   onSelect: (
     section:
       | 'clinica'
       | 'comercial'
+      | 'Estadisticas'
       | 'agregarProducto'
       | 'registro'
       | 'historial'
@@ -59,6 +61,9 @@ const Sidebar: React.FC<SidebarProps> = ({ onSelect, onLogout }) => {
           {/* Botón para ver el historial de pacientes */}
           <button className="sidebar-button" onClick={() => onSelect('pacientes')}>
             Historial de Pacientes
+          </button>
+          <button className="sidebar-button" onClick={() => onSelect('estadisticas')}>
+            Estadisticas
           </button>
         </div>
       )}

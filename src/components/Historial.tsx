@@ -23,7 +23,7 @@ const Historial: React.FC<HistorialProps> = ({ historial }) => {
     return (
       <div className="productos-list">
         <h2 className="productos-title">Historial de Mercancía</h2>
-        <p>No hay movimientos registrados.</p>
+        <div className="mensaje-vacio">No hay productos registrados.</div>
       </div>
     );
   }
