@@ -13,6 +13,7 @@ import Historial from './components/Historial';
 import RegistroPacientes from './components/Hpaciente';
 import Login from './components/Login';
 import RetiroForm from './components/RetiroForm';
+import Estadisticas from './components/Estadisticas'
 
 // Types
 import { Producto } from './types/Producto';
