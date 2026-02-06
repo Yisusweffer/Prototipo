@@ -13,7 +13,7 @@ const root = createRoot(container!);
 root.render(
   <React.StrictMode>
     <NotificationProvider>
-      <App />
+      <App/>
     </NotificationProvider>
   </React.StrictMode>
 );

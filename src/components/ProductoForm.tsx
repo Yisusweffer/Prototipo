@@ -214,11 +214,11 @@ const ProductoForm: React.FC<ProductoFormProps> = ({
 
         <div className="button-group">
           <button onClick={() => handleSubmit('clinico')}>
-            Agregar Clínico
+            Agregar Interno
           </button>
 
           <button onClick={() => handleSubmit('comercial')}>
-            Agregar Comercial
+            Agregar Paciente
           </button>
         </div>
       </div>
