@@ -28,9 +28,16 @@ interface SidebarProps {
   ) => void;
   onLogout: () => void;
   activeSection: string;
+  userProfile?: {
+    id: number;
+    nombre: string;
+    usuario: string;
+    rol: 'supervisor';
+  };
+  isAdmin: boolean;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ onSelect, onLogout, activeSection }) => {
+const Sidebar: React.FC<SidebarProps> = ({ onSelect, onLogout, activeSection, userProfile, isAdmin }) => {
   const [showInventarioList, setShowInventarioList] = useState(false);
   const [showRegistroList, setShowRegistroList] = useState(false);
 
@@ -76,6 +83,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onSelect, onLogout, activeSection }) 
           <button
             className={`sidebar-button ${activeSection === 'agregarProducto' ? 'active' : ''}`}
             onClick={() => onSelect('agregarProducto')}
+            style={{ display: isAdmin ? 'flex' : 'none' }}
           >
             <PlusCircle size={18} />
             Agregar Insumo
@@ -97,6 +105,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onSelect, onLogout, activeSection }) 
           <button
             className={`sidebar-button ${activeSection === 'estadisticas' ? 'active' : ''}`}
             onClick={() => onSelect('estadisticas')}
+            style={{ display: isAdmin ? 'flex' : 'none' }}
           >
             <BarChart3 size={18} />
             Estadisticas
@@ -115,7 +124,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onSelect, onLogout, activeSection }) 
             onClick={() => onSelect('clinica')}
           >
             <Stethoscope size={18} />
-            Gestión Interno
+            Interno
           </button>
 
           <button
