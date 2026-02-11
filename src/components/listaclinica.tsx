@@ -22,7 +22,7 @@ const ListaClinica: React.FC<ListaClinicaProps> = ({
 
   return (
     <div className="productos-list">
-      <h2 className="productos-title">Productos Clínicos</h2>
+      <h2 className="productos-title">Productos Interno</h2>
 
       <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '1.5rem' }}>
         <input

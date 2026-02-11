@@ -115,7 +115,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onSelect, onLogout, activeSection }) 
             onClick={() => onSelect('clinica')}
           >
             <Stethoscope size={18} />
-            Interno
+            Gestión Interno
           </button>
 
           <button
